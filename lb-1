@@ -58,7 +58,7 @@ void Movement(float speedX, float speedY, float omega, unsigned int sleepMS)
 int main(int argc, char** argv) {
 	std::ofstream idealTrajectory("ideal_trajectory.txt");
 	std::ofstream actualTrajectory("actual_trajectory.txt");
-	
+
 	// Default IP address Robotino 4
 	std::string ip_addr = "192.168.0.1";
 
@@ -143,9 +143,9 @@ int main(int argc, char** argv) {
 			break;
 		case 1:
 			odometry.readings(&x, &y, &phi);
-			if (y<1.5*side)
+			if (y < 1.5 * side)
 			{
-				Movement(-1.732*speed,speed, 0, sleepMs); // move left
+				Movement(-1.732 * speed, speed, 0, sleepMs); // move left
 				Write(x, y, phi, actualTrajectory);
 			}
 			else
@@ -156,9 +156,9 @@ int main(int argc, char** argv) {
 			break;
 		case 2:
 			odometry.readings(&x, &y, &phi);
-			if (y>side)
+			if (y > side)
 			{
-				Movement(-1.732*speed, -speed, 0, sleepMs); // move down
+				Movement(-1.732 * speed, -speed, 0, sleepMs); // move down
 				Write(x, y, phi, actualTrajectory);
 			}
 			else
@@ -186,7 +186,7 @@ int main(int argc, char** argv) {
 			odometry.readings(&x, &y, &phi);
 			if (y > -0.5 * side)
 			{
-				Movement(1.732*speed, -speed, 0, sleepMs); // move down
+				Movement(1.732 * speed, -speed, 0, sleepMs); // move down
 				Write(x, y, phi, actualTrajectory);
 			}
 			else
@@ -197,9 +197,9 @@ int main(int argc, char** argv) {
 			break;
 		case 5:
 			odometry.readings(&x, &y, &phi);
-			if (y<0)
+			if (y < 0)
 			{
-				Movement(1.732*speed, speed, 0, sleepMs); // move down
+				Movement(1.732 * speed, speed, 0, sleepMs); // move down
 				Write(x, y, phi, actualTrajectory);
 			}
 			else
